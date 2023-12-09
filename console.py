@@ -14,8 +14,14 @@ from models.user import User
 class HBNBCommand(cmd.Cmd):
     """Creating the HNBN cmd"""
 
-    prompt = "(hbnb) "  #Making the prompt of the cmd hnbn
+    prompt = "(hbnb) " if sys.__stdin__.isatty() else ''
     __classes = ["BaseModel", "Amenity", "City", "Place", "Review", "State", "User"]
+
+
+    def preloop(self):
+        """Prints if isatty is false"""
+        if not sys.__stdin__.isatty():
+            print('(hbnb)')
 
     def do_quit(self, args):
         """ The quit method to quite the cmd"""
