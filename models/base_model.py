@@ -45,11 +45,11 @@ class BaseModel:
     def to_dict(self):
         """ Method that returns all the values
         and keys of __dict__ of instance"""
+        
         ins_dic = dict(self.__dict__)
-        ins_dic["__class__"] = self.__class__.__name__
         ins_dic["created_at"] = self.created_at.isoformat()
         ins_dic["updated_at"] = self.updated_at.isoformat()
-
+        ins_dic["__class__"] = self.__class__.__name__
         return ins_dic
 
     def __str__(self):
