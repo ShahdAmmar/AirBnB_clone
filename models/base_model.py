@@ -40,6 +40,7 @@ class BaseModel:
         when instance is changed"""
         self.updated_at = datetime.now()
         models.storage.save()
+        models.storage.new(self)
 
     def to_dict(self):
         """ Method that returns all the values
