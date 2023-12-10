@@ -1,22 +1,33 @@
 #!/usr/bin/python3
+
 """A base module for all models in the project"""
 
 import uuid
 from datetime import datetime
 import models
 
+
 class BaseModel:
 
     """A base model for all models"""
+
+    FORMAT = '%Y-%m-%dT%H:%M:%S.%f'
     def __init__(self, *args, **kwargs):
-        """ intializing attributes """
+        """ intializing attributes
+        Args:
+            - *args: will not be used
+            - **kwargs: a dictionary of key-values arguments
+        """
+
         if kwargs:
-            kwargs['created_at'] = datetime.strptime(
-                    kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
-            kwargs['updated_at'] = datetime.strptime(
-                    kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
+            #kwargs['created_at'] = datetime.strptime(
+                    #kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
+            #kwargs['updated_at'] = datetime.strptime(
+                    #kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
             for key, val in kwargs.items():
                 if key != '__class__':
+                    if key in ["created_at", "updated_at"]:
+                        val = datetime.strptime(val, self.FORMAT)
                     setattr(self, key, val)
         else:
             self.id = str(uuid.uuid4())
