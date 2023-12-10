@@ -5,7 +5,6 @@ import uuid
 from datetime import datetime
 import models
 
-
 class BaseModel:
 
     """A base model for all models"""
