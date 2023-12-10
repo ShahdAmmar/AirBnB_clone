@@ -9,6 +9,7 @@ class BaseModel:
 
     """A base model for all models"""
     def __init__(self, *args, **kwargs):
+        """ intializing attributes """
         if kwargs:
             kwargs['created_at'] = datetime.strptime(
                     kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
