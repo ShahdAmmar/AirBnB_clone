@@ -29,13 +29,6 @@ class Place_test(unittest.TestCase):
         """ class documentation """
         self.assertGreater(len(Place.__doc__), 1)
 
-    '''
-    def initdocumentation_test(self):
-        """ class documentation """
-        self.assertGreater(len(Place.__init__.__doc__), 1)
-
-    '''
-
 
 if __name__ == "__main__":
     unittest.main()

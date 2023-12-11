@@ -20,12 +20,6 @@ class Review_test(unittest.TestCase):
     def documentation_test(self):
         """ class documentation """
         self.assertGreater(len(Review.__doc__), 1)
-    '''
-    def initdocumentation_test(self):
-        """ class documentation """
-        self.assertGreater(len(Review.__init__.__doc__), 1)
-
-    '''
 
 
 if __name__ == "__main__":
