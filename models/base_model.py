@@ -12,7 +12,9 @@ class BaseModel:
     """A base model for all models"""
 
     FORMAT = '%Y-%m-%dT%H:%M:%S.%f'
+
     def __init__(self, *args, **kwargs):
+
         """ intializing attributes
         Args:
             - *args: will not be used
@@ -20,10 +22,12 @@ class BaseModel:
         """
 
         if kwargs:
-            #kwargs['created_at'] = datetime.strptime(
-                    #kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
-            #kwargs['updated_at'] = datetime.strptime(
-                    #kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
+            """
+            kwargs['created_at'] = datetime.strptime(
+                    kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
+            kwargs['updated_at'] = datetime.strptime(
+                    kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
+                    """
             for key, val in kwargs.items():
                 if key != '__class__':
                     if key in ["created_at", "updated_at"]:
@@ -45,7 +49,7 @@ class BaseModel:
     def to_dict(self):
         """ Method that returns all the values
         and keys of __dict__ of instance"""
-        
+
         ins_dic = dict(self.__dict__)
         ins_dic["created_at"] = self.created_at.isoformat()
         ins_dic["updated_at"] = self.updated_at.isoformat()
