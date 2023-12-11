@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module for test User class"""
+"""Module for test User class that tests basemodel"""
 import unittest
 from models.user import User
 from models.base_model import BaseModel
