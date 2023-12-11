@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Review class test """
+""" Review class test to recieve feedback """
 import unittest
 from models.review import Review
 from models.base_model import BaseModel
