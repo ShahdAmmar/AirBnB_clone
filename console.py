@@ -57,6 +57,7 @@ class HBNBCommand(cmd.Cmd):
         """
         provide help documentations from the cmd for EOF command
         """
+        print()
         print("EOF command to exit the program")
 
     def emptyline(self):
