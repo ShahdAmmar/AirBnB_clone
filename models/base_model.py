@@ -19,6 +19,10 @@ class BaseModel:
         Args:
             - *args: will not be used
             - **kwargs: a dictionary of key-values arguments
+        Attributes:
+            id: uuid
+            created_at: date
+            updated_at: date
         """
 
         if kwargs:
