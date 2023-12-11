@@ -18,65 +18,89 @@ class HBNBCommand(cmd.Cmd):
     """Creating the HNBN cmd"""
 
     prompt = "(hbnb) " if sys.__stdin__.isatty() else ''
-    __classes = ["BaseModel", "Amenity", "City", "Place", "Review", "State", "User"]
-
+    __classes = [
+                    "BaseModel",
+                    "Amenity",
+                    "City",
+                    "Place",
+                    "Review",
+                    "State",
+                    "User"]
 
     def preloop(self):
-        """Prints if isatty is false"""
+        """
+        Prints if isatty is false
+        """
         if not sys.__stdin__.isatty():
             print('(hbnb)')
 
     def do_quit(self, args):
-        """ The quit method to quite the cmd"""
+        """
+        The quit method to quite the cmd
+        """
         return True
 
     def help_quit(self):
-        """ Method used to provide help documentations from the cmd for quit command """
+        """
+        provide help documentations from the cmd for quit command
+        """
         print("Quit command to exit the program")
 
     def do_EOF(self, args):
-        """ The EOF (End-Of-File) method to exit the program """
+        """
+        The EOF (End-Of-File) method to exit the program
+        """
         return True
 
     def help_EOF(self):
-        """ Method used to provide help documentations from the cmd for EOF command """
+        """
+        provide help documentations from the cmd for EOF command
+        """
         print("EOF command to exit the program")
 
     def empty_line(self):
-        """Empty line method which handles when user enters it + enter shouldn't exceute anything"""
+        """
+        handles when user enters it + enter shouldn't exceute anything
+        """
         pass
 
     def do_create(self, args):
-        """ Creates new instance of BaseModel and save it n JSON file"""
-        splitted_command = shlex.split(args)
-        if len(splitted_command) == 0: #checks if there is a class name entered or not using len
-            print("** class name missing **")
-        elif splitted_command[0] not in self.__classes: # checks if the first argument not in the valid classes
-            print("** class doesn't exist **")
-        else:
-            new_ins = eval(splitted_command[0] + '()')
-            new_ins.save()
-            print(new_ins.id) #print the ID of the created instance
-
-    def do_show(self, args):
-        """Method that prints the string representation of an instance based on class name and ID"""
+        """
+        Creates new instance of BaseModel and save it n JSON file
+        """
         splitted_command = shlex.split(args)
         if len(splitted_command) == 0:
             print("** class name missing **")
         elif splitted_command[0] not in self.__classes:
             print("** class doesn't exist **")
-        elif len(splitted_command) < 2: #checks if the splitted command is less than two tokens
-            print("** instance id missing **") #Means that only the class name was provided and ID not provided
         else:
-            all_objects = storage.all() #fetch all the objects from storage
+            new_ins = eval(splitted_command[0] + '()')
+            new_ins.save()
+            print(new_ins.id)  # print the ID of the created instance
+
+    def do_show(self, args):
+        """
+        prints string representation of instance based on class name and ID
+        """
+        splitted_command = shlex.split(args)
+        if len(splitted_command) == 0:
+            print("** class name missing **")
+        elif splitted_command[0] not in self.__classes:
+            print("** class doesn't exist **")
+        elif len(splitted_command) < 2:  # if splitted command is < 2 tokens
+            print("** instance id missing **")
+        else:
+            all_objects = storage.all()  # fetch all the objects from storage
             key = splitted_command[0] + "." + splitted_command[1]
-            if key in all_objects: #checks if the key is in objects
+            if key in all_objects:  # checks if the key is in objects
                 print(all_objects[key])
             else:
                 print("** no instance found **")
 
     def do_destroy(self, args):
-        """Deletes an instance based on the class name and id"""
+        """
+        Deletes an instance based on the class name and id
+        """
         splitted_command = shlex.split(args)
         if len(splitted_command) == 0:
             print("** class name missing **")
@@ -94,7 +118,9 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
 
     def do_all(self, args):
-        """Prints all string representation of all instances """
+        """
+        Prints all string representation of all instances
+        """
         llist = []
         all_objects = storage.all()
         splitted_command = shlex.split(args)
@@ -102,8 +128,8 @@ class HBNBCommand(cmd.Cmd):
             for key, value in all_objects.items():
                 llist.append(str(value))
         elif splitted_command[0] not in self.__classes:
-                print("** class doesn't exist **")
-                return
+            print("** class doesn't exist **")
+            return
         else:
             for key, value in all_objects.items():
                 if key.split('.')[0] == splitted_command[0]:
@@ -111,7 +137,9 @@ class HBNBCommand(cmd.Cmd):
         print(llist)
 
     def do_update(self, args):
-        """Updates an instance based on the class name and id"""
+        """
+        Updates an instance based on the class name and id
+        """
         splitted_command = shlex.split(args)
         if len(splitted_command) == 0:
             print("** class name missing **")
