@@ -44,7 +44,6 @@ class HBNBCommand(cmd.Cmd):
         """
         The EOF (End-Of-File) method to exit the program
         """
-        print()
         return True
 
     def help_EOF(self):
