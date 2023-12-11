@@ -11,19 +11,25 @@ from models.state import State
 
 
 class FileStorage:
-    """serilizes instances to JSON and deserialized JSON file to instances"""
+    """serilizes instances to JSON and deserialized JSON file to instances
+
+    Attributes:
+        __file_path (str): The name of the file to save objects to.
+        __objects (dict): A dictionary of instantiated objects.
+
+    """
     __file_path = 'file3.json'
     __objects = {}
 
     def all(self):
         """ returns __objects dictionary """
-        return FileStorage.__objects
+        return self.__objects
 
     def new(self, obj):
         """ sets in __objects the obj with key <obj class name>.id """
         if obj:
             key = f'{obj.__class__.__name__}.{obj.id}'
-            FileStorage.__objects[key] = obj
+            self.__objects[key] = obj
 
     def save(self):
         """ serializes __objects to JSON file """
