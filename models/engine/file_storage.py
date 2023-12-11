@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-""" Module of FileStorage class """
+"""
+Module of FileStorage class
+stores instances into JSON file
+"""
 import json
 from models.base_model import BaseModel
 from models.user import User
