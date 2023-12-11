@@ -16,7 +16,7 @@ class Amenity_test(unittest.TestCase):
         self.assertIsInstance(Amenity.name, str)
 
     def documentation_test(self):
-        """ class documentation """
+        """ class documentation of Amenity class """
         self.assertGreater(len(Amenity.__doc__), 1)
 
 
