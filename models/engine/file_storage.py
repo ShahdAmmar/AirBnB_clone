@@ -46,7 +46,7 @@ class FileStorage:
                 nw_dict = json.load(jsonFile)
             for key, val in nw_dict.items():
                 cls_name = val.get('__class__')
-                print(cls_name)
+                # print(cls_name)
                 obj = eval(cls_name + '(**val)')
                 FileStorage.__objects[key] = obj
 
