@@ -17,8 +17,8 @@ class BaseModel:
 
         """ intializing attributes
         Args:
-            - args: will not be used
-            - kwargs: a dictionary of key-values arguments
+            - *args: will not be used
+            - **kwargs: a dictionary of key-values arguments
         """
 
         if kwargs:
@@ -34,15 +34,19 @@ class BaseModel:
             models.storage.new(self)
 
     def save(self):
-        """updates the public instance attribute updated_at
-        when instance is changed"""
+        """
+        updates the public instance attribute updated_at
+        when instance is changed
+        """
         self.updated_at = datetime.now()
         models.storage.save()
         models.storage.new(self)
 
     def to_dict(self):
-        """ Method that returns all the values
-        and keys of __dict__ of instance"""
+        """
+        Method that returns all the values
+        and keys of __dict__ of instance
+        """
 
         ins_dic = dict(self.__dict__)
         ins_dic["created_at"] = self.created_at.isoformat()
@@ -51,6 +55,8 @@ class BaseModel:
         return ins_dic
 
     def __str__(self):
-        """Returns the string representation of an instance"""
+        """
+        Returns the string representation of an instance
+        """
         cls_name = self.__class__.__name__
         return '[{}] ({}) {}'.format(cls_name, self.id, self.__dict__)
