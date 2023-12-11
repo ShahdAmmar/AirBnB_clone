@@ -35,7 +35,7 @@ class Place_test(unittest.TestCase):
         self.assertGreater(len(Place.__init__.__doc__), 1)
 
     '''
-    
+
 
 if __name__ == "__main__":
     unittest.main()

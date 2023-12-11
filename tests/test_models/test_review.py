@@ -26,7 +26,7 @@ class Review_test(unittest.TestCase):
         self.assertGreater(len(Review.__init__.__doc__), 1)
 
     '''
-    
+
 
 if __name__ == "__main__":
     unittest.main()

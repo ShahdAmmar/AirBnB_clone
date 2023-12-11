@@ -23,8 +23,7 @@ class State_test(unittest.TestCase):
     def initdocumentation_test(self):
         """ class documentation """
         self.assertGreater(len(State.__init__.__doc__), 1)
-    '''    
-    
+    '''
 
 
 if __name__ == "__main__":

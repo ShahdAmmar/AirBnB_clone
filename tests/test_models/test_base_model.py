@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """
-test for the base_model class
+itest for the base_model class
 """
 import unittest
 from models.base_model import BaseModel
+
 
 class TestBasemodel(unittest.TestCase):
     """class to test the BaseModel class"""
@@ -32,16 +33,18 @@ class TestBasemodel(unittest.TestCase):
 
         self.assertEqual(dict_base_model["__class__"], 'BaseModel')
         self.assertEqual(dict_base_model["id"], model_class.id)
-        self.assertEqual(dict_base_model["created_at"], model_class.created_at.isoformat())
-        self.assertEqual(dict_base_model["updated_at"], model_class.updated_at.isoformat())
+        self.assertEqual(dict_base_model[
+            "created_at"], model_class.created_at.isoformat())
+        self.assertEqual(dict_base_model[
+            "updated_at"], model_class.updated_at.isoformat())
 
     def test_str(self):
         """Method to test __str__ class"""
         model_class = BaseModel()
 
-        self.assertTrue(str(model_class).startswith('[BaseModel]')) #returns true when it starts with BaseModel
-        self.assertIn(model_class.id, str(model_class)) #test that the id of the instance created is at string representation
-        self.assertIn(str(model_class.__dict__), str(model_class)) #tests that the instance has additional string representation
+        self.assertTrue(str(model_class).startswith('[BaseModel]'))
+        self.assertIn(model_class.id, str(model_class))
+        self.assertIn(str(model_class.__dict__), str(model_class))
 
 
 if __name__ == "__main__":
