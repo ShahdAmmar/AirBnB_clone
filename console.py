@@ -18,7 +18,15 @@ class HBNBCommand(cmd.Cmd):
     """Creating the HNBN cmd"""
 
     prompt = "(hbnb) " if sys.__stdin__.isatty() else ''
-    __classes = ["BaseModel", "Amenity", "City", "Place", "Review", "State", "User"]
+    __classes = {
+        'BaseModel': BaseModel,
+        'User': User,
+        'State': State,
+        'City': City,
+        'Amenity': Amenity,
+        'Place': Place,
+        'Review': Review
+    }
 
 
     def preloop(self):
@@ -49,8 +57,10 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, args):
         """ Creates new instance of BaseModel and save it n JSON file"""
         splitted_command = shlex.split(args)
-        if len(splitted_command) == 0: #checks if there is a class name entered or not using len
+        if not splitted_command: #checks if there is a class name entered or not using len
             print("** class name missing **")
+            return
+
         elif splitted_command[0] not in self.__classes: # checks if the first argument not in the valid classes
             print("** class doesn't exist **")
         else:
