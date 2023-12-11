@@ -32,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
         """
         Prints if isatty is false
         """
-        if not sys._stdin_.isatty():
+        if not sys.__stdin__.isatty():
             print('(hbnb)')
 
     def do_quit(self, args):
@@ -51,13 +51,13 @@ class HBNBCommand(cmd.Cmd):
         """
         The EOF (End-Of-File) method to exit the program
         """
+        print()
         return True
 
     def help_EOF(self):
         """
         provide help documentations from the cmd for EOF command
         """
-        print()
         print("EOF command to exit the program")
 
     def emptyline(self):
