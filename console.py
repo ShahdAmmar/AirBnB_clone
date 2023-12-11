@@ -59,7 +59,7 @@ class HBNBCommand(cmd.Cmd):
         """
         print("EOF command to exit the program")
 
-    def empty_line(self):
+    def emptyline(self):
         """
         handles when user enters it + enter shouldn't exceute anything
         """
