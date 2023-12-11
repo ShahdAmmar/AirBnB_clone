@@ -14,7 +14,5 @@ The command interpreter manages the project's objects; it can create a new objec
 str----------
 
 ### How to use the command interpreter?
-use----------
-
-### Examples
-use tools -----------
+write the command and press enter.
+if the command is defined, it's excuted
