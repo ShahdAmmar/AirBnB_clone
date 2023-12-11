@@ -28,13 +28,6 @@ class HBNBCommand(cmd.Cmd):
                     "State",
                     "User"]
 
-    def preloop(self):
-        """
-        Prints if isatty is false
-        """
-        if not sys.__stdin__.isatty():
-            print('(hbnb)')
-
     def do_quit(self, args):
         """
         The quit method to quite the cmd
@@ -51,6 +44,7 @@ class HBNBCommand(cmd.Cmd):
         """
         The EOF (End-Of-File) method to exit the program
         """
+        print()
         return True
 
     def help_EOF(self):
