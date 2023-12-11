@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" console command intrepreter """
+""" console command intrepreter using cmd """
 
 import cmd
 import shlex
