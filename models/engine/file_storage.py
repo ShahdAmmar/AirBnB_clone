@@ -10,22 +10,21 @@ from models.review import Review
 from models.state import State
 
 
-
 class FileStorage:
-    """ The class serilizes instances to JSON file and deserialized JSON file to instances"""
+    """serilizes instances to JSON and deserialized JSON file to instances"""
     __file_path = 'file3.json'
     __objects = {}
 
     def all(self):
         """ returns __objects dictionary """
         return FileStorage.__objects
-    
+
     def new(self, obj):
         """ sets in __objects the obj with key <obj class name>.id """
         if obj:
             key = f'{obj.__class__.__name__}.{obj.id}'
             FileStorage.__objects[key] = obj
-    
+
     def save(self):
         """ serializes __objects to JSON file """
         nw_dict = {}
@@ -33,7 +32,7 @@ class FileStorage:
             nw_dict[key] = val.to_dict().copy()
         with open(FileStorage.__file_path, 'w') as jsonFile:
             json.dump(nw_dict, jsonFile)
-    
+
     def reload(self):
         """ deserializes JSON file to __objects """
         try:
