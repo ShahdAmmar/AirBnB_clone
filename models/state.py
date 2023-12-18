@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" A class State that inherits from BaseModel """
+""" A class State that inherits from BaseModel class """
 from models.base_model import BaseModel
 
 

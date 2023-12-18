@@ -16,13 +16,8 @@ class Amenity_test(unittest.TestCase):
         self.assertIsInstance(Amenity.name, str)
 
     def documentation_test(self):
-        """ class documentation """
+        """ class documentation of Amenity class """
         self.assertGreater(len(Amenity.__doc__), 1)
-    '''
-    def initdocumentation_test(self):
-        """ class documentation """
-        self.assertGreater(len(Amenity.__init__.__doc__), 1)
-    '''
 
 
 if __name__ == "__main__":

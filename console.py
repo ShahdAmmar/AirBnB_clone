@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" console command intrepreter """
+""" console command intrepreter using cmd """
 
 import cmd
 import shlex
@@ -51,6 +51,7 @@ class HBNBCommand(cmd.Cmd):
         """
         The EOF (End-Of-File) method to exit the program
         """
+        print()
         return True
 
     def help_EOF(self):
@@ -59,7 +60,7 @@ class HBNBCommand(cmd.Cmd):
         """
         print("EOF command to exit the program")
 
-    def empty_line(self):
+    def emptyline(self):
         """
         handles when user enters it + enter shouldn't exceute anything
         """

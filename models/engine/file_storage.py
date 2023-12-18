@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-""" Module of FileStorage class """
+"""
+Module of FileStorage class
+stores instances into JSON file
+"""
 import json
 from models.base_model import BaseModel
 from models.user import User
@@ -46,7 +49,7 @@ class FileStorage:
                 nw_dict = json.load(jsonFile)
             for key, val in nw_dict.items():
                 cls_name = val.get('__class__')
-                print(cls_name)
+                # print(cls_name)
                 obj = eval(cls_name + '(**val)')
                 FileStorage.__objects[key] = obj
 

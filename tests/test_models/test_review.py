@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Review class test """
+""" Review class test to recieve feedback """
 import unittest
 from models.review import Review
 from models.base_model import BaseModel
@@ -20,12 +20,6 @@ class Review_test(unittest.TestCase):
     def documentation_test(self):
         """ class documentation """
         self.assertGreater(len(Review.__doc__), 1)
-    '''
-    def initdocumentation_test(self):
-        """ class documentation """
-        self.assertGreater(len(Review.__init__.__doc__), 1)
-
-    '''
 
 
 if __name__ == "__main__":
