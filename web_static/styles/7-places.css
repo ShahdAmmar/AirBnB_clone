@@ -1,0 +1,36 @@
+.places{
+    border: 0;
+    padding-left: 30px;
+    flex-direction: column;
+    display: flex;
+}
+
+.places h1{
+    font-size: 30px;
+}
+
+.plcs_title{
+    padding-top: 30px;
+    margin-bottom: -20px;
+}
+
+.articles{
+    justify-content: center;
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.places article{
+    width: 390px;
+    padding: 10px;
+    margin: 20px;
+    border: solid #FF5A5F 1px;
+    border-radius: 4px;
+    font-size: 30px;
+    text-align: center;
+}
+
+article h2{
+    font-size: 30px;
+}
